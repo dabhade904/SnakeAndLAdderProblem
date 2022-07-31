@@ -15,6 +15,7 @@ namespace SnakeAndLadderProblem
         public const int WINING_POSITION = 100;
         //Variable
         int playerPosition = 0;
+        int counter = 0;
         public void PlayGame()
         {
             while(playerPosition< WINING_POSITION)
@@ -43,6 +44,8 @@ namespace SnakeAndLadderProblem
                     playerPosition -= dieRoll;
                     Console.WriteLine("Stay in some previous position" + playerPosition);
                 }
+                counter++;
+                Console.WriteLine(counter+" counter and position "+playerPosition);
             }
         }
     }

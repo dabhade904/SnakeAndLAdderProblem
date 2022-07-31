@@ -17,7 +17,7 @@ namespace SnakeAndLadderProblem
             int playerPosition = 0;
             Random obj=new Random();
             int diceRoll = obj.Next(1, 7);
-            int option = obj.Next(1, 3);
+            int option = obj.Next(0, 2);
 
             if(option == LADDER)
             {
@@ -25,14 +25,7 @@ namespace SnakeAndLadderProblem
             }
             else if(option == SNAKE)
             {
-                if (playerPosition == 0)
-                {
-                    playerPosition = playerPosition;
-                }
-                else
-                {
-                    playerPosition = playerPosition - option;
-                }
+                playerPosition = playerPosition - diceRoll;   
             }
             else
             {

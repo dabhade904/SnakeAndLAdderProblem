@@ -13,30 +13,35 @@ namespace SnakeAndLadderProblem
         public const int SNAKE =2;
         public const int NO_PLAY = 0;
         public const int WINING_POSITION = 100;
+        //Variable
+        int playerPosition = 0;
         public void PlayGame()
         {
-            for(int i=1;i<=WINING_POSITION;i++)
+            while(playerPosition< WINING_POSITION)
             {
-                int playerPosition = 0;
                 Random obj = new Random();
-                int diceRoll = obj.Next(1, 7);
+                int dieRoll = obj.Next(1, 7);
                 int option = obj.Next(0, 3);
                 switch (option)
                 {
                     case LADDER:
-                        playerPosition += diceRoll;
+                        playerPosition += dieRoll;
                         break;
                     case SNAKE:
-                        playerPosition -= diceRoll;
+                        playerPosition -= dieRoll;
                         break;
-                    default:
+                    case NO_PLAY:
                         Console.WriteLine("No Play");
                         break;      
                 }
                 if (playerPosition < 0)
                 {
                     playerPosition = 0;
-                    Console.WriteLine("Final player position"+playerPosition);
+                }
+                else if (playerPosition >WINING_POSITION)
+                {
+                    playerPosition -= dieRoll;
+                    Console.WriteLine("Stay in some previous position" + playerPosition);
                 }
             }
         }

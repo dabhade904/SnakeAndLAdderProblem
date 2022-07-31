@@ -8,13 +8,36 @@ namespace SnakeAndLadderProblem
 {
     public class SnakeAndLadder
     {
+        //Constant for a program
+        public const int LADDER= 1;
+        public const int SNAKE =2;
+        public const int NO_PLAY = 0;
         public void PlayGame()
         {
-            int initialPosition = 0;
-            Console.WriteLine("Started with "+initialPosition+" position");
+            int playerPosition = 0;
             Random obj=new Random();
             int diceRoll = obj.Next(1, 7);
-            Console.WriteLine("Dice Roll "+diceRoll);
+            int option = obj.Next(1, 3);
+
+            if(option == LADDER)
+            {
+                playerPosition += diceRoll;
+            }
+            else if(option == SNAKE)
+            {
+                if (playerPosition == 0)
+                {
+                    playerPosition = playerPosition;
+                }
+                else
+                {
+                    playerPosition = playerPosition - option;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No Play");
+            }            
         }
     }
 }

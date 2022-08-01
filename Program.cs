@@ -6,7 +6,8 @@
         {
             Console.WriteLine("Welcome to snake and ladder problem");
             SnakeAndLadder obj = new SnakeAndLadder();
-            obj.PlayGame();
+            obj.initialPlay();
         }
+       
     }
 }
